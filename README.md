@@ -1,17 +1,23 @@
 # Jarvis 插件市场
 
-Jarvis 插件市场的结构化清单仓库。本仓库维护一份机器可读的插件清单（[`market.yaml`](market.yaml)），
-供 Jarvis 客户端解析、展示与安装社区插件。
+Jarvis 插件市场的结构化清单仓库。本仓库通过 `plugins/` 目录下的**每插件一个 YAML 文件**，
+描述每个可用插件的元数据，供 Jarvis 客户端解析、展示与安装社区插件。
 
-## 什么是插件市场
+## 目录结构
 
-Jarvis 插件生态分散在各处，缺乏统一的发现入口。本仓库作为**集中式插件目录**，
-通过一份结构化清单（YAML）描述每个可用插件的元数据（名称/介绍/仓库链接/发布分支/作者/许可证/分类），
-让用户能方便地发现、浏览、检索并安装社区插件。
+```
+plugin-market/
+├── README.md
+└── plugins/
+    ├── <plugin-id>.yaml     # 每个插件一个文件（文件名 = 插件 id）
+    └── ...
+```
 
-## 清单结构
+客户端扫描 `plugins/` 目录下所有 `.yaml` 文件，每个文件描述一个插件。
 
-见 [`market.yaml`](market.yaml) 顶部注释。核心字段：
+## 插件 YAML 结构
+
+每个插件一个 YAML 文件，文件名建议等于插件 `id`。核心字段：
 
 | 字段 | 说明 |
 |------|------|
@@ -24,17 +30,19 @@ Jarvis 插件生态分散在各处，缺乏统一的发现入口。本仓库作�
 | `license` | 开源协议 |
 | `categories` | 分类/标签（可选） |
 
+示例见 [`plugins/_example.yaml`](plugins/_example.yaml)。
+
 ## 设计原则：不记录版本号
 
 版本号变动频繁，若写入市场清单，每次发版都需同步修改，维护成本高。
-因此本清单**不记录版本号**——客户端从插件仓库本身获取最新版本（git 分支 HEAD / tag），
+因此本仓库**不记录版本号**——客户端从插件仓库本身获取最新版本（git 分支 HEAD / tag），
 本清单只维护相对稳定的元数据。
 
 ## 如何提交插件到市场
 
-1. 在 [`market.yaml`](market.yaml) 的 `plugins` 列表新增一条记录（字段见上）
+1. 在 [`plugins/`](plugins/) 目录新增一个 `<plugin-id>.yaml` 文件（字段见上，参考示例）
 2. 创建 Pull Request 到本仓库
-3. 经审核合并后，客户端拉取本清单即可看到该插件
+3. 经审核合并后，客户端拉取本仓库即可看到该插件
 
 > 依赖声明（其他插件 / Python 包 / 系统命令）请写在插件自身的 `config.yaml` 的
 > `dependencies` 字段，**不要**写进市场清单，避免重复维护。
@@ -47,4 +55,4 @@ Jarvis 插件生态分散在各处，缺乏统一的发现入口。本仓库作�
 plugin_market_repo: https://github.com/skyfireitdiy/plugin-market
 ```
 
-客户端即可通过 `list_market_plugins()` 拉取本清单并浏览插件。
+客户端即可通过 `list_market_plugins()` 拉取 `plugins/` 目录下的清单并浏览插件。
