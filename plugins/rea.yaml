@@ -1,0 +1,16 @@
+# Jarvis 插件市场条目：rea
+#
+# REA（Reverse Engineer Anything）逆向工程集成插件。
+# 让 Jarvis Agent 具备二进制 / 应用 / 运行时逆向分析能力。
+id: rea
+name: REA 逆向工程
+description: 基于 REA（Reverse Engineer Anything）的逆向工程集成插件：一键配置 REA 环境（先询问逆向目标再按需安装配套工具）、多节点批量部署、MCP 自动注册，让 Agent 具备二进制/应用/运行时逆向分析能力。
+repo: https://github.com/skyfireitdiy/jarvis-plugin-rea
+branch: main
+author: skyfire
+license: MIT
+logo: https://raw.githubusercontent.com/skyfireitdiy/jarvis-plugin-rea/main/assets/rea-icon.svg
+categories:
+  - security
+  - reverse-engineering
+  - dev
