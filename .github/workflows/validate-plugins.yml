@@ -1,5 +1,5 @@
 ---
-name: Validate Plugin IDs
+name: Validate Plugin Market
 
 # 检测 plugins/ 目录下所有插件清单：id 唯一性、文件名=id、配置格式、
 # repo URL 可达性（git ls-remote 验证仓库与分支存在）。
@@ -13,7 +13,7 @@ name: Validate Plugin IDs
 
 jobs:
   validate:
-    name: Validate plugin IDs
+    name: Validate plugin market
     runs-on: ubuntu-latest
 
     steps:
