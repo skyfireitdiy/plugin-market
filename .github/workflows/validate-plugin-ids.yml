@@ -1,0 +1,31 @@
+---
+name: Validate Plugin IDs
+
+# 检测 plugins/ 目录下所有插件清单的 id 是否唯一，以及文件名是否等于 id。
+# 触发时机：PR（含 PR 内 push）+ 推送到 main，保证合并前后都校验。
+
+"on":
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validate plugin IDs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: Install PyYAML
+        run: python -m pip install --upgrade pip pyyaml
+
+      - name: Validate plugin IDs are unique
+        run: python scripts/validate_plugin_ids.py
