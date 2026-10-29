@@ -1,0 +1,21 @@
+id: stock-predictor
+name: A股中短线预测
+description: >-
+  综合量价技术面/资金结构面/情绪题材面/大盘环境/消息事件面五维信号，
+  预测 A 股次日方向、涨跌幅区间与触发信号，输出可解释的逐项证据与置信度。
+  支持对话问答与定时盘后日报（工具 stock_daily_report）。
+repo: https://github.com/skyfireitdiy/jarvis-plugin-stock-predictor
+branch: main
+author: skyfire
+license: MIT
+logo: |
+  <svg viewBox="0 0 16 16" fill="none" stroke="#34d399" stroke-width="1.5"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+  xmlns="http://www.w3.org/2000/svg">
+  <path d="M2 13.5h12"/>
+  <path d="M3.5 10l2.5-3 2 1.5 3.5-5"/>
+  <path d="M9 3.5h2v2"/>
+  </svg>
+categories:
+  - finance
+  - analysis
