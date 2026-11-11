@@ -1,0 +1,25 @@
+id: orchestrator
+name: 通用编排器
+description: >-
+  通用编排器（generic engine）——与领域无关的批量任务执行引擎。
+  输入 plan（unit 清单，每个 unit 自带完整提示词或 shell 命令），
+  按 DAG 依赖排序、并发限流（concurrency_key/limit）、batch_group 打包、
+  超时/熔断/失败留痕，输出 result（每个 unit 的执行结果）。
+  通过 orchestrator CLI 命令使用（validate/dry_run/run/show 四动作）。
+  硬依赖：tmux（并发 pane 派发）；uv（安装 CLI）；Python>=3.10，仅标准库。
+repo: https://github.com/skyfireitdiy/jarvis-plugin-orchestrator
+branch: main
+author: skyfire
+license: MIT
+logo: |
+  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <!-- 通用编排器：DAG 节点 + 连线（plan → 派发 → result） -->
+    <circle cx="3" cy="4" r="1.6"/>
+    <circle cx="3" cy="12" r="1.6"/>
+    <circle cx="13" cy="8" r="1.6"/>
+    <path d="M4.6 4h5.4a2 2 0 0 1 1.4.6l1 1"/>
+    <path d="M4.6 12h5.4a2 2 0 0 0 1.4-.6l1-1"/>
+  </svg>
+categories:
+  - automation
+  - tool
